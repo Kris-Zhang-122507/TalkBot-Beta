@@ -21,7 +21,7 @@ Client.on('ready', () => {
     console.log(`${Client.user.tag} is online!`)
 })
 
-Client.on('message', message => {
+Client.on('messageCreate', message => {
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
