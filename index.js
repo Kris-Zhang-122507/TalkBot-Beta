@@ -30,9 +30,6 @@ Client.on('messageCreate', message => {
     if(command === 'ping'){
         Client.commands.get('ping').execute(message, args);
     }
-    else if(command === 'ding'){
-        Client.commands.get('ding').execute(message, args);
-    }
 })
 
 
