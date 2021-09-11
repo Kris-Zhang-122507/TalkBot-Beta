@@ -50,7 +50,7 @@ Client.on('messageCreate', message => {
         let minutes = Math.floor(Client.uptime / 60000) % 60;
         let seconds = Math.floor(Client.uptime / 1000) % 60;
   
-        message.channel.send(`__Uptime:__\n${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
+        message.channel.send(`__Uptime:__\n${days} day(s), ${hours} hour(s), ${minutes} minute(s), ${seconds} second(s)`);
       
     }
     
