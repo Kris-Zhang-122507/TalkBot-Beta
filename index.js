@@ -19,6 +19,15 @@ for(const file of commandFiles){
 
 Client.on('ready', () => {
     console.log(`${Client.user.tag} is online!`)
+
+    const statusArray = ['Minecraft, PLAYING','#General Chat, WATCHING', 'Music, LISTENING', 'Everything Go Wrong, WATCHING', 'Everyone, WATCHING', 'Security Logs, LISTENING']
+    setInterval(() => {
+        const random = statusArray[Math.floor(Math.random() * statusArray.length)].split(', ')
+        const status = random[0]
+        const mode = random[1]
+        Client.user.setActivity(status, {type: mode})
+    }, 5800)
+
 })
 
 Client.on('messageCreate', message => {
@@ -33,6 +42,16 @@ Client.on('messageCreate', message => {
 
     if(command === 'ding'){
         Client.commands.get('ding').execute(message, args);
+    }
+
+    if(command ==='uptime'){
+        let days = Math.floor(Client.uptime / 86400000);
+        let hours = Math.floor(Client.uptime / 3600000) % 24;
+        let minutes = Math.floor(Client.uptime / 60000) % 60;
+        let seconds = Math.floor(Client.uptime / 1000) % 60;
+  
+        message.channel.send(`__Uptime:__\n${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
+      
     }
     
 })
