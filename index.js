@@ -5,7 +5,8 @@ const Client = new discord.Client({
 })
 const { Interaction } = require("discord.js");
 const ms = require("ms");
-const config = require('./config.json')
+const config = require('./config.json');
+const { MessageEmbed } = require('discord.js');
 
 
 
@@ -25,7 +26,7 @@ for(const file of commandFiles){
 Client.on('ready', () => {
     console.log(`${Client.user.tag} is online!`)
 
-    const statusArray = ['Minecraft, PLAYING','#General Chat, WATCHING', 'Music, LISTENING', 'Everything Go Wrong, WATCHING', 'Everyone, WATCHING', 'Security Logs, LISTENING', `${prefix}help, WATCHING`]
+    const statusArray = ['Minecraft, PLAYING','#General Chat, WATCHING', 'Music, LISTENING', 'Everything Go Wrong, WATCHING', 'Everyone, WATCHING', 'Security Logs, LISTENING', `${prefix}help, WATCHING`,'AI machine learning videos, WATCHING']
     setInterval(() => {
         const random = statusArray[Math.floor(Math.random() * statusArray.length)].split(', ')
         const status = random[0]
@@ -70,7 +71,25 @@ Client.on('messageCreate', message => {
         message.channel.send(` __Uptime:__\n ${days} day(s),\n ${hours} hour(s),\n ${minutes} minute(s),\n ${seconds} second(s)`);
       
     }
+     
+    if(command === 'help'){
+        const helpEmbed = new MessageEmbed()
+	    .setColor('RANDOM')
+	    .setTitle('This is the all the commands currently coded in the bot:')
+	    .setDescription('Subject to add more in the near future as this is a beta version')
+	    .addFields(
+		    { name: '.Ping', value: 'Tells you the current ping of the bot' },
+		    { name: '\u200B', value: '\u200B' },
+		    { name: '.ding', value: 'Bot replys with ding', inline: true },
+		    { name: '.pingpong', value: 'Bot replys with pingpong', inline: true },
+            { name: '.uptime', value: 'Tells you the current uptime of the bot', inline: true },
+	    )
+	    .addField('Help command last updated on', '01/19/2022 at 7:24 PM', true)
+	    .setTimestamp()
+	    
 
+    message. channel.send({ embeds: [helpEmbed] });    
+    }
 
     
 })
