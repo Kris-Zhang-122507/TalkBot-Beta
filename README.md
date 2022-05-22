@@ -3,6 +3,9 @@
 
  For code privacy reasons, some of the code will be not shown. The reason being is that this is a public discord bot and we want to code (The code we developed) to be kept secret.
 
+# Development Paused
+Development has been paused until further notice while I work on another project.
+
 # License
 
 Although being open source we limit the code shown on this page. This is to prevent. People from stealing our cool feature that are yet to come!
